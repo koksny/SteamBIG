@@ -1,0 +1,711 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #ddd;
+    background-color: #1b2838;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2a3f5a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #66c0f4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #66c0f4;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #66c0f4;
+    margin-bottom: 5px;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.game-input {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    background-color: #1b2838;
+    border-radius: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.input-group-combined {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group-combined .text-input {
+    flex: 1;
+}
+
+label {
+    font-weight: 500;
+}
+
+.text-input {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #2a3f5a;
+    border: 1px solid #66c0f4;
+    border-radius: 4px;
+    color: #ddd;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #1999ff;
+    box-shadow: 0 0 0 2px rgba(102, 192, 244, 0.3);
+}
+
+.input-tab {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #1b2838;
+    border: 1px solid #1b2838;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    color: #ddd;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.input-tab.active {
+    background-color: #2a3f5a;
+    border-color: #66c0f4;
+    border-bottom: none;
+    color: #66c0f4;
+}
+
+.input-container {
+    border: 1px solid #66c0f4;
+    padding: 15px;
+    border-radius: 0 4px 4px 4px;
+    background-color: #2a3f5a;
+    margin-bottom: 15px;
+}
+
+.input-panel {
+    display: none;
+}
+
+.input-panel.active {
+    display: block;
+}
+
+.search-results {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    background-color: #2a3f5a;
+    border-radius: 4px;
+    display: none;
+    border: 1px solid #66c0f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-result {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #1b2838;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s;
+}
+
+.search-result:hover {
+    background-color: #3e5f85;
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+.search-result img {
+    width: 80px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.game-preview {
+    margin-top: 15px;
+    display: none;
+}
+
+.preview-images {
+    display: flex;
+    gap: 10px;
+}
+
+.preview-image {
+    flex: 1;
+    text-align: center;
+}
+
+.image-preview {
+    width: 100%;
+    min-height: 140px;
+    background-color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.controls {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #1b2838;
+    border-radius: 5px;
+}
+
+.controls-section {
+    margin-bottom: 15px;
+}
+
+.controls-section:last-child {
+    margin-bottom: 0;
+}
+
+.controls-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(102, 192, 244, 0.5);
+    padding-bottom: 5px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.options:last-child {
+    margin-bottom: 0;
+}
+
+.options-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.option-group {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(42, 63, 90, 0.3);
+}
+
+.option-group.logo-global-settings {
+    flex: 1;
+    min-width: 180px;
+}
+
+.option-group.format-group {
+    flex: 0.8;
+}
+
+.option-group.split-group {
+    flex: 1;
+}
+
+.option-group.border-group {
+    flex: 1;
+}
+
+.option-group.background-group {
+    flex: 0.5;
+}
+
+.option-group h3 {
+    font-size: 1rem;
+    color: #66c0f4;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(102, 192, 244, 0.3);
+    padding-bottom: 5px;
+}
+
+.option-item {
+    margin-bottom: 10px;
+}
+
+.checkbox-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.checkbox-row label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.game-adjustments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.adjustment-group {
+    padding: 10px;
+    background-color: rgba(42, 63, 90, 0.3);
+    border-radius: 5px;
+}
+
+.adjustment-group h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    color: #66c0f4;
+    border-bottom: 1px solid rgba(102, 192, 244, 0.3);
+    padding-bottom: 5px;
+}
+
+.slider-row {
+    margin-bottom: 8px;
+}
+
+.slider-row label {
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.slider-row input[type="range"] {
+    margin-top: 0;
+}
+
+.drag-hint {
+    font-size: 0.8rem;
+    color: #8ba5bb;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.drag-hint kbd {
+    background: rgba(102, 192, 244, 0.2);
+    border: 1px solid rgba(102, 192, 244, 0.4);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: inherit;
+    font-size: 0.85em;
+}
+
+.logo-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.game-specific-controls {
+    flex: 2;
+    min-width: 280px;
+    margin-top: 0;
+    padding: 12px;
+    background-color: rgba(27, 40, 56, 0.5);
+    border-radius: 4px;
+    border-left: 3px solid rgba(102, 192, 244, 0.5);
+}
+
+.preview-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #1b2838;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.preview-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+canvas {
+    max-width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#download-btn {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.steps-section {
+    padding: 15px;
+    background-color: #1b2838;
+    border-radius: 5px;
+}
+
+ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.file-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="file"] {
+    background-color: #2a3f5a;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #66c0f4;
+    color: #ddd;
+    width: 100%;
+}
+
+.bg-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.bg-options-label {
+    font-size: 0.85rem;
+    color: #66c0f4;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.bg-option {
+    cursor: pointer;
+    width: 75px;
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.bg-option img {
+    width: 100%;
+    height: 45px;
+    object-fit: cover;
+    display: block;
+}
+
+.bg-option span {
+    font-size: 0.7rem;
+    display: block;
+    text-align: center;
+    padding: 2px;
+    background: rgba(0,0,0,0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bg-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.bg-option.selected {
+    border-color: #66c0f4;
+    box-shadow: 0 0 8px rgba(102, 192, 244, 0.7);
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+    background-color: #2a3f5a;
+    border-radius: 4px;
+    height: 8px;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background-color: #66c0f4;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background-color: #66c0f4;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.slider-value {
+    font-size: 0.8rem;
+    color: #66c0f4;
+    text-align: right;
+    margin-top: 2px;
+}
+
+.conditional-option {
+    display: none;
+}
+
+.conditional-option.visible {
+    display: block;
+}
+
+.help-text {
+    font-size: 0.8rem;
+    color: #66c0f4;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.logo-position-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.logo-offset-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.logo-offset-group label {
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.color-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.color-input-group input[type="color"] {
+    width: 40px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+}
+
+.color-input-group input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    background-color: #2a3f5a;
+    border: 1px solid #66c0f4;
+    border-radius: 4px;
+    color: #ddd;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    background-color: #2a3f5a;
+    border: 1px solid #66c0f4;
+    border-radius: 4px;
+    color: #ddd;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #66c0f4;
+    color: #171a21;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #1999ff;
+}
+
+button:disabled {
+    background-color: #4e5862;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .input-section {
+        flex-direction: column;
+    }
+    
+    .options {
+        flex-direction: column;
+    }
+    
+    .options-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-adjustments {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo-controls {
+        flex-direction: column;
+    }
+
+    .game-specific-controls {
+        min-width: 100%;
+    }
+
+    .option-group.logo-global-settings {
+        min-width: 100%;
+    }
+}
+
+.generate-section {
+    margin-bottom: 20px;
+}
+
+/* Background offset controls */
+.background-offset-controls {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(102, 192, 244, 0.3);
+}
+
+.background-offset-controls h4 {
+    margin: 10px 0 5px 0;
+    font-size: 0.9rem;
+}
+
+.background-offset-controls h4:first-child {
+    margin-top: 5px;
+}
+
+.bg-offset-group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 5px;
+}
+
+.bg-offset-group label {
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.background-offset-controls .hint {
+    font-size: 0.75rem;
+    color: #66c0f4;
+    margin: 10px 0 0 0;
+    font-style: italic;
+    text-align: left;
+}
+
+/* Draggable preview canvas */
+#preview-canvas {
+    cursor: grab;
+}
+
+#preview-canvas.dragging {
+    cursor: grabbing;
+}
+
+#preview-canvas.over-logo {
+    cursor: move;
+}
+
+#preview-canvas.dragging-logo {
+    cursor: move;
+}
+
+/* SteamDB fetch button for logos */
+.steamdb-fetch-btn {
+    display: block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #1a4480, #2d5a9e);
+    color: #fff;
+    border: 1px solid #3d7ab8;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.steamdb-fetch-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2d5a9e, #4080c0);
+    border-color: #66c0f4;
+}
+
+.steamdb-fetch-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

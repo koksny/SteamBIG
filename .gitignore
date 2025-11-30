@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Build outputs
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Generated images (user outputs)
+output/
+generated/
+exports/
+
+# Backup files
+*.bak
+*.backup
+
+# Local development files
+.local/
+local.html
+test.html
+
+# Cache
+.cache/
+.parcel-cache/

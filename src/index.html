@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Bundle Image Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Steam Bundle Image Generator</h1>
+        <p>Create promotional graphics for Steam bundles by merging assets from two games.</p>
+        
+        <div class="input-section">
+            <div class="game-input">
+                <h2>Game 1</h2>
+                <div class="input-tabs">
+                    <span id="game1-name-tab" class="input-tab active">Search by Name</span>
+                    <span id="game1-id-tab" class="input-tab">Enter Game ID</span>
+                    <span id="game1-upload-tab" class="input-tab">Upload Files</span>
+                </div>
+                <div class="input-container">
+                    <div id="game1-name-panel" class="input-panel active">
+                        <div class="input-group">
+                            <label for="game1-name">Game Name:</label>
+                            <input type="text" id="game1-name" placeholder="Enter game name" class="text-input">
+                        </div>
+                        <div id="game1-results" class="search-results"></div>
+                    </div>
+                    <div id="game1-id-panel" class="input-panel">
+                        <div class="input-group">
+                            <label for="game1-id">Steam Game ID:</label>
+                            <input type="text" id="game1-id" placeholder="e.g. 1174180" class="text-input">
+                            <div class="help-text">Find IDs in Steam store URLs: store.steampowered.com/app/[ID]</div>
+                        </div>
+                    </div>
+                    <div id="game1-upload-panel" class="input-panel">
+                        <div class="input-group">
+                            <label for="game1-logo-upload">Upload Logo:</label>
+                            <input type="file" id="game1-logo-upload" accept="image/png,image/jpeg,image/webp,image/gif">
+                        </div>
+                        <div class="input-group">
+                            <label for="game1-bg-upload">Upload Background:</label>
+                            <input type="file" id="game1-bg-upload" accept="image/png,image/jpeg,image/webp,image/gif">
+                        </div>
+                    </div>
+                </div>
+                <div id="game1-preview" class="game-preview">
+                    <div class="preview-images">
+                        <div class="preview-image">
+                            <h4>Logo</h4>
+                            <div id="game1-logo-preview" class="image-preview"></div>
+                        </div>
+                        <div class="preview-image">
+                            <h4>Background</h4>
+                            <div id="game1-bg-preview" class="image-preview"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-input">
+                <h2>Game 2</h2>
+                <div class="input-tabs">
+                    <span id="game2-name-tab" class="input-tab active">Search by Name</span>
+                    <span id="game2-id-tab" class="input-tab">Enter Game ID</span>
+                    <span id="game2-upload-tab" class="input-tab">Upload Files</span>
+                </div>
+                <div class="input-container">
+                    <div id="game2-name-panel" class="input-panel active">
+                        <div class="input-group">
+                            <label for="game2-name">Game Name:</label>
+                            <input type="text" id="game2-name" placeholder="Enter game name" class="text-input">
+                        </div>
+                        <div id="game2-results" class="search-results"></div>
+                    </div>
+                    <div id="game2-id-panel" class="input-panel">
+                        <div class="input-group">
+                            <label for="game2-id">Steam Game ID:</label>
+                            <input type="text" id="game2-id" placeholder="e.g. 1091500" class="text-input">
+                            <div class="help-text">Find IDs in Steam store URLs: store.steampowered.com/app/[ID]</div>
+                        </div>
+                    </div>
+                    <div id="game2-upload-panel" class="input-panel">
+                        <div class="input-group">
+                            <label for="game2-logo-upload">Upload Logo:</label>
+                            <input type="file" id="game2-logo-upload" accept="image/png,image/jpeg,image/webp,image/gif">
+                        </div>
+                        <div class="input-group">
+                            <label for="game2-bg-upload">Upload Background:</label>
+                            <input type="file" id="game2-bg-upload" accept="image/png,image/jpeg,image/webp,image/gif">
+                        </div>
+                    </div>
+                </div>
+                <div id="game2-preview" class="game-preview">
+                    <div class="preview-images">
+                        <div class="preview-image">
+                            <h4>Logo</h4>
+                            <div id="game2-logo-preview" class="image-preview"></div>
+                        </div>
+                        <div class="preview-image">
+                            <h4>Background</h4>
+                            <div id="game2-bg-preview" class="image-preview"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="controls-section">
+                <h2>Image Configuration</h2>
+                <div class="options-row">
+                    <div class="option-group">
+                        <h3>Output Format</h3>
+                        <div class="option-item">
+                            <label for="format-select">Image Size:</label>
+                            <select id="format-select">
+                                <option value="package-header">Package Header (1414×464)</option>
+                                <option value="header-capsule">Header Capsule (920×430)</option>
+                                <option value="small-capsule">Small Capsule (462×174)</option>
+                                <option value="main-capsule">Main Capsule (1232×706)</option>
+                            </select>
+                        </div>
+                        <div class="option-item">
+                            <label for="split-style">Split Style:</label>
+                            <select id="split-style">
+                                <option value="horizontal">Horizontal Split</option>
+                                <option value="vertical">Vertical Split</option>
+                                <option value="diagonal">Diagonal Split</option>
+                            </select>
+                        </div>
+                        <div id="diagonal-options" class="option-item conditional-option">
+                            <label for="split-angle">Angle: <span id="split-angle-value">45°</span></label>
+                            <input type="range" id="split-angle" min="0" max="180" value="45">
+                        </div>
+                        <div class="option-item checkbox-row">
+                            <label><input type="checkbox" id="swap-backgrounds"> Swap Backgrounds</label>
+                            <label><input type="checkbox" id="swap-logos"> Swap Logos</label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h3>Borders</h3>
+                        <div class="option-item">
+                            <label for="border-width">Split Border: <span id="border-width-value">0px</span></label>
+                            <input type="range" id="border-width" min="0" max="100" value="0">
+                        </div>
+                        <div class="option-item">
+                            <label for="border-color">Split Color:</label>
+                            <div class="color-input-group">
+                                <input type="color" id="border-color" value="#66c0f4">
+                                <input type="text" id="border-color-text" value="#66c0f4" class="text-input">
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <label for="frame-border-width">Frame Border: <span id="frame-border-width-value">0px</span></label>
+                            <input type="range" id="frame-border-width" min="0" max="50" value="0">
+                        </div>
+                        <div class="option-item">
+                            <label for="frame-border-color">Frame Color:</label>
+                            <div class="color-input-group">
+                                <input type="color" id="frame-border-color" value="#66c0f4">
+                                <input type="text" id="frame-border-color-text" value="#66c0f4" class="text-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h3>Logo Position</h3>
+                        <div class="option-item">
+                            <label for="logo-position">Layout:</label>
+                            <select id="logo-position">
+                                <option value="center">Center Together</option>
+                                <option value="separate">Keep Separate</option>
+                            </select>
+                        </div>
+                        <p class="hint drag-hint">Drag on preview to move backgrounds<br>Click directly on logos to drag them</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls-section">
+                <h2>Game 1 Adjustments</h2>
+                <div class="game-adjustments">
+                    <div class="adjustment-group">
+                        <h4>Background</h4>
+                        <div class="slider-row">
+                            <label>X: <span id="game1-bg-x-offset-value">0px</span></label>
+                            <input type="range" id="game1-bg-x-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Y: <span id="game1-bg-y-offset-value">0px</span></label>
+                            <input type="range" id="game1-bg-y-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Scale: <span id="game1-bg-scale-value">100%</span></label>
+                            <input type="range" id="game1-bg-scale" min="50" max="200" value="100">
+                        </div>
+                    </div>
+                    <div class="adjustment-group">
+                        <h4>Logo</h4>
+                        <div class="slider-row">
+                            <label>X: <span id="game1-x-offset-value">0px</span></label>
+                            <input type="range" id="game1-x-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Y: <span id="game1-y-offset-value">0px</span></label>
+                            <input type="range" id="game1-y-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Scale: <span id="game1-scale-value">100%</span></label>
+                            <input type="range" id="game1-scale" min="25" max="400" value="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls-section">
+                <h2>Game 2 Adjustments</h2>
+                <div class="game-adjustments">
+                    <div class="adjustment-group">
+                        <h4>Background</h4>
+                        <div class="slider-row">
+                            <label>X: <span id="game2-bg-x-offset-value">0px</span></label>
+                            <input type="range" id="game2-bg-x-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Y: <span id="game2-bg-y-offset-value">0px</span></label>
+                            <input type="range" id="game2-bg-y-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Scale: <span id="game2-bg-scale-value">100%</span></label>
+                            <input type="range" id="game2-bg-scale" min="50" max="200" value="100">
+                        </div>
+                    </div>
+                    <div class="adjustment-group">
+                        <h4>Logo</h4>
+                        <div class="slider-row">
+                            <label>X: <span id="game2-x-offset-value">0px</span></label>
+                            <input type="range" id="game2-x-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Y: <span id="game2-y-offset-value">0px</span></label>
+                            <input type="range" id="game2-y-offset" min="-500" max="500" value="0">
+                        </div>
+                        <div class="slider-row">
+                            <label>Scale: <span id="game2-scale-value">100%</span></label>
+                            <input type="range" id="game2-scale" min="25" max="400" value="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="generate-section">
+            <button id="generate-btn" style="display: none;">Generate Bundle Image</button>
+        </div>
+        
+        <div class="preview-section">
+            <h2>Preview</h2>
+            <div class="preview-container">
+                <canvas id="preview-canvas"></canvas>
+            </div>
+            <button id="download-btn" disabled>Download Image</button>
+        </div>
+        
+        <!-- Core API and managers -->
+        <script src="js/steamApi.js"></script>
+        <script src="js/imageManager.js"></script>
+        
+        <!-- Canvas utilities for image generator -->
+        <script src="js/generatorFormats.js"></script>
+        <script src="js/canvasUtils.js"></script>
+        <script src="js/drawBackgrounds.js"></script>
+        <script src="js/drawLogos.js"></script>
+        
+        <!-- Image generator and UI -->
+        <script src="js/imageGenerator.js"></script>
+        <script src="js/gameSearch.js"></script>
+        <script src="js/uiControls.js"></script>
+        <script src="js/script.js"></script>
+    </div>
+</body>
+</html>
