@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-web-lightgrey.svg)
 
-**Create stunning promotional graphics for Steam bundles by merging assets from two games.**
+**Create promotional graphics for Steam bundles by merging assets from two games.**
 
 [Features](#features) • [Quick Start](#quick-start) • [Usage](#usage) • [Documentation](docs/README.md) • [Contributing](CONTRIBUTING.md)
 
@@ -20,13 +20,13 @@ Steam Bundle Image Generator (SteamBIG) is a browser-based tool that allows you 
 
 ## Features
 
-### 🎮 Game Asset Loading
+### Game Asset Loading
 - **Search by Name**: Find games directly by searching Steam's catalog
 - **Direct ID Input**: Enter Steam App IDs for precise game selection
 - **File Upload**: Use your own custom logos and backgrounds
 - **Multiple Background Options**: Choose from library heroes, screenshots, headers, and more
 
-### 🎨 Image Customization
+### Image Customization
 - **Split Styles**: Horizontal, vertical, and diagonal splits with adjustable angles
 - **Border Controls**: Customizable split line and frame borders with color pickers
 - **Logo Positioning**: Center logos together or keep them separate on their respective sides
@@ -34,7 +34,7 @@ Steam Bundle Image Generator (SteamBIG) is a browser-based tool that allows you 
 - **Logo Scaling**: Resize logos with per-game scale controls
 - **Drag-to-Position**: Click and drag directly on the preview to adjust positions
 
-### 📐 Output Formats
+### Output Formats
 Generate images in Steam's official asset dimensions:
 | Format | Dimensions | Use Case |
 |--------|------------|----------|
@@ -43,7 +43,7 @@ Generate images in Steam's official asset dimensions:
 | Main Capsule | 1232×706 | Featured sections |
 | Small Capsule | 462×174 | Store listings |
 
-### ✨ Additional Features
+### Additional Features
 - Real-time preview with instant updates
 - High-quality image rendering with multi-step downscaling
 - Automatic text logo generation when official logos are unavailable
@@ -135,10 +135,10 @@ SteamBIG/
 ## Browser Support
 
 SteamBIG works best in modern browsers:
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Edge 80+
-- ✅ Safari 13+
+- Chrome 80+
+- Firefox 75+
+- Edge 80+
+- Safari 13+
 
 ## Technical Notes
 
@@ -174,5 +174,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-Made with ❤️ for the Steam community
+Made with <3 for the Steam community
 </div>
