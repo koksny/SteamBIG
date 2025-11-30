@@ -1,5 +1,7 @@
 # Steam Bundle Image Generator (SteamBIG)
 
+![SteamBIG In-Use](https://github.com/koksny/SteamBIG/blob/main/SteamBIG_production.jpg)
+
 <div align="center">
 
 ![Version](https://img.shields.io/badge/version-1.5-blue.svg)
