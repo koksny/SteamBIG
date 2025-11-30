@@ -1,6 +1,7 @@
 # Steam Bundle Image Generator (SteamBIG)
 
 ![SteamBIG In-Use](https://github.com/koksny/SteamBIG/blob/main/SteamBIG_production.png)
+![SteamBIG Screenshot](https://github.com/koksny/SteamBIG/blob/main/SteamBIG_screenshot.png)
 
 <div align="center">
 
