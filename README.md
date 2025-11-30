@@ -170,9 +170,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Steam and all game assets are property of their respective owners
 - This tool is not affiliated with or endorsed by Valve Corporation
 - Built with vanilla JavaScript - no frameworks required!
-
----
-
-<div align="center">
-Made with <3 for the Steam community
-</div>
